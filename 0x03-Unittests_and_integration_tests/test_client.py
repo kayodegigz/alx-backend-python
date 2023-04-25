@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Unittests and integration tests """
+""" Integration/Unit tests """
 
 from client import GithubOrgClient
 from fixtures import TEST_PAYLOAD
@@ -16,11 +16,11 @@ class TestGithubOrgClient(unittest.TestCase):
         ('abc')
     ])
     @patch('client.get_json')
-    def test_org(self, input, mock):
+    def test_org(self, i, m):
         """Test that GithubOrgClient.org returns the correct value"""
-        test_class = GithubOrgClient(input)
-        test_class.org()
-        mock.called_with_once(test_class.ORG_URL.format(org=input))
+        sample_class = GithubOrgClient(i)
+        sample_class.org()
+        m.called_with_once(sample_class.ORG_URL.format(org=i))
 
     def test_public_repos_url(self):
         """ Test that the result of _public_repos_url
