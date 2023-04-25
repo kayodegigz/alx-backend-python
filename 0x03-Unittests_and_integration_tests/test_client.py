@@ -24,7 +24,7 @@ class TestGithubOrgClient(unittest.TestCase):
 
     def test_public_repos_url(self):
         """ Test that the result of _public_repos_url
-        return the correct value based 
+        return the correct value based
         on the request
         """
         with patch('client.GithubOrgClient.org',
