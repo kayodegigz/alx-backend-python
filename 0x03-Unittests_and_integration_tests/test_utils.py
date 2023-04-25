@@ -56,20 +56,20 @@ class TestGetJson(unittest.TestCase):
 
 
 class TestMemoize(unittest.TestCase):
-    """ Test memoize class """
+    """ Testigng memoization """
 
     def test_memoize(self):
         """ Test memoize """
         class TestClass:
-            """ Test Class """
+            """Memoize Test Class """
 
             def a_method(self):
-                """ A method that returns 42 """
+                """ A method, returns 42 """
                 return 42
 
             @memoize
             def a_property(self):
-                """ Decorator """
+                """ Method called twice """
                 return self.a_method()
 
         with patch.object(TestClass, 'a_method') as mock:
