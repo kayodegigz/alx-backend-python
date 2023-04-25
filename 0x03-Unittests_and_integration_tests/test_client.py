@@ -24,15 +24,16 @@ class TestGithubOrgClient(unittest.TestCase):
 
     def test_public_repos_url(self):
         """ Test that the result of _public_repos_url
-        return the correct value based on the given payload
+        return the correct value based 
+        on the request
         """
         with patch('client.GithubOrgClient.org',
                    new_callable=PropertyMock) as mock:
-            payload = {"repos_url": "Hello World"}
-            mock.return_value = payload
-            test_class = GithubOrgClient('test')
+            req_payload = {"repos_url": "Hello World"}
+            mock.return_value = req_payload
+            sample_class = GithubOrgClient('test')
             result = test_class._public_repos_url
-            self.assertEqual(result, payload["repos_url"])
+            self.assertEqual(result, req_payload["repos_url"])
 
     @patch('client.get_json')
     def test_public_repos(self, mock_json):
